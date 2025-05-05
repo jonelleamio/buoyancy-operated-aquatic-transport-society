@@ -2,21 +2,24 @@ package com.kata.boats.infrastructure.out.dao;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import javax.validation.constraints.NotNull;
+import org.hibernate.annotations.UuidGenerator;
 
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
-@Entity(name = "boat")
+@Entity
+@Table(name = "boats")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class BoatDao {
 
     @Id
-    @NotNull
+    @UuidGenerator
     private UUID id;
 
     @NotNull

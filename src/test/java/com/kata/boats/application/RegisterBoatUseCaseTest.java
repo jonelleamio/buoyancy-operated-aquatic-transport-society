@@ -10,9 +10,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.UUID;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class RegisterBoatUseCaseTest {
@@ -53,13 +55,13 @@ class RegisterBoatUseCaseTest {
         String boatName = "The bo-at";
         String boatDescription = "Buoyancy Operated Aquatic Transport";
         BoatRegistration command = new BoatRegistration(boatName, boatDescription);
-        Boat expectedBoat = new Boat(null, boatName, boatDescription);
+        Boat expectedBoat = new Boat(UUID.randomUUID(), boatName, boatDescription);
+        when(boatRepository.store(BoatRegistration.toBoat(command))).thenReturn(expectedBoat);
 
         // When
-        registerBoatUseCase.execute(command);
+        Boat actual = registerBoatUseCase.execute(command);
 
         // Then
-        assertTrue(true);
-        verify(boatRepository).store(expectedBoat);
+        assertThat(actual).isEqualTo(expectedBoat);
     }
 }

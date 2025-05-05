@@ -1,0 +1,30 @@
+### Browse all boats
+GET http://localhost:8080/api/boats
+Accept: application/hal+json
+
+### Register a new boat
+POST http://localhost:8080/api/boats
+Content-Type: application/json
+
+{
+  "name": "Tri-state Sailor",
+  "description": "Behold, the evil vessel of tri-state area"
+}
+
+### Get the details of a particular boat
+GET http://localhost:8080/api/boats/e29a6050-3195-4f43-a938-67d0001b2c84
+Accept: application/hal+json
+
+### Update boat info
+PUT http://localhost:8080/api/boats
+Content-Type: application/json
+
+{
+  "id": "e29a6050-3195-4f43-a938-67d0001b2c84",
+  "name": "Perry's bo-at",
+  "description": "Was a bad bo-at-inator, but now it is agent P's bo-at"
+}
+
+### Undock a boat
+DELETE http://localhost:8080/api/boats/e29a6050-3195-4f43-a938-67d0001b2c84
+Accept: application/hal+json

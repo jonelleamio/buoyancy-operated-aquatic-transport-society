@@ -15,12 +15,12 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
-class DeleteBoatUseCaseTest {
+class UndockBoatUseCaseTest {
     @Mock
     private BoatRepository boatRepository;
 
     @InjectMocks
-    private DeleteBoatUseCase deleteBoatUseCase;
+    private UndockBoatUseCase undockBoatUseCase;
 
     @Test
     public void returns_not_valid_when_boat_id_is_empty() {
@@ -28,7 +28,7 @@ class DeleteBoatUseCaseTest {
         BoatStringId boatStringId = new BoatStringId("");
 
         // When+Then
-        assertThatThrownBy(() -> deleteBoatUseCase.execute(boatStringId))
+        assertThatThrownBy(() -> undockBoatUseCase.execute(boatStringId))
                 .isInstanceOf(InvalidBoatDeletion.class)
                 .hasMessage("Boat ID cannot be null or empty");
     }
@@ -39,7 +39,7 @@ class DeleteBoatUseCaseTest {
         BoatStringId boatStringId = new BoatStringId(UUID.randomUUID().toString());
 
         // When
-        deleteBoatUseCase.execute(boatStringId);
+        undockBoatUseCase.execute(boatStringId);
 
         // Then
         verify(boatRepository).remove(BoatStringId.to(boatStringId));

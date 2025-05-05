@@ -181,12 +181,20 @@ npm start
 ## Testing
 
 * **Unit & Integration**: JUnit 5, Mockito, ApprovalTests
-* **Behavioral**: Cucumber features under `src/test/resources/features`
+* **Behavioral**: Cucumber features under `src/test/features`
 * **Event Stream**: Axon test fixtures
 
+Run all tests:
 ```bash
 ./mvnw verify
 npm test
+```
+
+
+if you are using colima with macOS, don't forget or TestingContainers won't work :
+```bash
+export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 ```
 
 ---

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class DeleteBoatUseCase {
+public class UndockBoatUseCase {
     private final BoatRepository boatRepository;
 
     public void execute(BoatStringId command) {

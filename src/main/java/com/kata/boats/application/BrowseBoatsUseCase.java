@@ -6,14 +6,12 @@ import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 public class BrowseBoatsUseCase {
-   private final BoatRepository boatRepository;
+    private final BoatRepository boatRepository;
 
     public Set<Boat> execute() {
         Set<Boat> boats = boatRepository.find();

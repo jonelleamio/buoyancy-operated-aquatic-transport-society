@@ -4,6 +4,7 @@ services:
     environment:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=boats
       - POSTGRES_HOST_AUTH_METHOD=trust
     ports:
       - '127.0.0.1:5432:5432'

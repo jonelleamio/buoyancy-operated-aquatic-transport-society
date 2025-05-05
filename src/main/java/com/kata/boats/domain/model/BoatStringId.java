@@ -6,6 +6,14 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.UUID;
 
 public record BoatStringId(String id) {
+    public static BoatStringId from(String boatId) {
+        return new BoatStringId(boatId);
+    }
+
+    public static UUID to(BoatStringId boatStringId) {
+        return UUID.fromString(boatStringId.value());
+    }
+
     public String value() {
         return id;
     }
@@ -14,9 +22,5 @@ public record BoatStringId(String id) {
         if (StringUtils.isBlank(id)) {
             throw new InvalidBoatDeletion("Boat ID cannot be null or empty");
         }
-    }
-
-    public static UUID to(BoatStringId boatStringId) {
-        return UUID.fromString(boatStringId.value());
     }
 }
