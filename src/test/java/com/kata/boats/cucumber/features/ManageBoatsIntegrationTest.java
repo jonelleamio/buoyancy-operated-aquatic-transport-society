@@ -27,11 +27,11 @@ public class ManageBoatsIntegrationTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    private String baseUrl(){
+    private BoatDto createdBoat;
+
+    private String baseUrl() {
         return String.format("http://localhost:%d/api/boats", port);
     }
-
-    private BoatDto createdBoat;
 
     @Given("the member is signed in")
     public void theMemberIsSignedIn() {
