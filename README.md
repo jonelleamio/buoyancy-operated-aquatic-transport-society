@@ -159,7 +159,13 @@ if you are using colima with macOS, don't forget or TestingContainers won't work
 ```bash
 export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+
+## you might also need to link the docker socket with colima
+sudo rm -f /var/run/docker.sock
+sudo ln -s ~/.colima/default/docker.sock /var/run/docker.sock
 ```
+
+**Testing endpoints using IntelliJ with HTTP Calls:** [endpoints.http](endpoints.http)
 
 ---
 
@@ -179,5 +185,3 @@ application:
     allowed-origins: http://localhost:4200
     allowed-methods: '*'
 ```
-
-Angular HATEOAS client is configured in `client/src/environments/`.

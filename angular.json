@@ -34,7 +34,10 @@
                 "output": "content"
               }
             ],
-            "styles": ["src/main/webapp/styles.scss"],
+            "styles": [
+              "@angular/material/prebuilt-themes/magenta-violet.css",
+              "src/main/webapp/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
