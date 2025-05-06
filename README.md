@@ -7,17 +7,13 @@ _An enterprise-grade Spring Boot & Angular application illustrating Hexagonal Ar
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [Features](#features)
+2. [Features](#technical-features)
 3. [Architecture](#architecture)
     - [Hexagonal Flow](#hexagonal-flow)
     - [Global Schema](#global-schema)
-    - [CQRS + HATEOAS Schema](#cqrs--hateoas-schema)
 4. [Getting Started](#getting-started)
 5. [Testing](#testing)
 6. [Configuration](#configuration)
-7. [Documentation](#documentation)
-8. [Contributing](#contributing)
-9. [License](#license)
 
 ---
 
