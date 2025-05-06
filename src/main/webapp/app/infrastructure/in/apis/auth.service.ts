@@ -7,11 +7,11 @@ interface LoginRes { token: string; }
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private tokenKey = 'init-key';
+  private tokenKey = 'jwTokenKey';
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string): Observable<void> {
+  login({username, password}:LoginReq): Observable<void> {
     return this.http
       .post<LoginRes>('/api/auth/login', { username, password })
       .pipe(
@@ -26,5 +26,9 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem(this.tokenKey);
+  }
+
+  isAuthenticated(): boolean  {
+    return !!this.getToken();
   }
 }
