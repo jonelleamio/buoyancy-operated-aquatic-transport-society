@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "target/out-tsc/spec",
+    "types": ["jasmine", "vitest/globals"],
+    "target": "es2016"
+  },
+  "include": ["src/main/webapp/**/*.spec.ts", "src/main/webapp/**/*.d.ts"],
+  "files": ["src/test/webapp/unit/vitest-setup.ts"]
+}

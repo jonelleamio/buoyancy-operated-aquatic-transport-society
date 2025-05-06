@@ -1,0 +1,23 @@
+# Prettier configuration
+
+printWidth: 140
+singleQuote: true
+tabWidth: 2
+useTabs: false
+endOfLine: 'lf'
+experimentalOperatorPosition: start
+
+plugins:
+  - prettier-plugin-gherkin
+  - prettier-plugin-java
+  - prettier-plugin-organize-imports
+  - prettier-plugin-packagejson
+
+arrowParens: avoid
+bracketSameLine: false
+
+# https://github.com/prettier/prettier/issues/15956
+overrides:
+  - files: ['*.jsonc']
+    options:
+      trailingComma: none

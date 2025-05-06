@@ -9,8 +9,8 @@ _An enterprise-grade Spring Boot & Angular application illustrating Hexagonal Ar
 1. [Overview](#overview)
 2. [Features](#technical-features)
 3. [Architecture](#architecture)
-    - [Hexagonal Flow](#hexagonal-flow)
-    - [Global Schema](#global-schema)
+   - [Hexagonal Flow](#hexagonal-flow)
+   - [Global Schema](#global-schema)
 4. [Getting Started](#getting-started)
 5. [Testing](#testing)
 6. [Configuration](#configuration)
@@ -75,7 +75,7 @@ flowchart LR
    AppSvc --> DM
    DM --> Sec
 
-````
+```
 
 ### Global Schema
 
@@ -106,15 +106,16 @@ flowchart LR
     DM --> P1 & P2
     P1 & P2 --> S1 & S2 & S3 & S4 & S5
 ```
+
 ---
 
 ## Getting Started
 
 ### Prerequisites
 
-* **Java 24+**, **Maven 3.9+**
-* **Node.js 22+**, **NPM 10.9+**
-* **Docker** for PostgreSQL & RabbitMQ
+- **Java 24+**, **Maven 3.9+**
+- **Node.js 22+**, **NPM 10.9+**
+- **Docker** for PostgreSQL & RabbitMQ
 
 if you use SDKMAN and NVM, you can run:
 
@@ -136,24 +137,25 @@ npm install
 npm start
 ```
 
-*App runs at `http://localhost:4200` (proxies to API).*
+_App runs at `http://localhost:4200` (proxies to API)._
 
 ---
 
 ## Testing
 
-* **Unit & Integration**: JUnit 5, Mockito, ApprovalTests
-* **Behavioral**: Cucumber features under `src/test/features`
-* **Event Stream**: Axon test fixtures
+- **Unit & Integration**: JUnit 5, Mockito, ApprovalTests
+- **Behavioral**: Cucumber features under `src/test/features`
+- **Event Stream**: Axon test fixtures
 
 Run all tests:
+
 ```bash
 ./mvnw verify
 npm test
 ```
 
-
 if you are using colima with macOS, don't forget or TestingContainers won't work :
+
 ```bash
 export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
@@ -175,7 +177,7 @@ axon:
 application:
   cors:
     allowed-origins: http://localhost:4200
-    allowed-methods: "*"
+    allowed-methods: '*'
 ```
 
 Angular HATEOAS client is configured in `client/src/environments/`.
