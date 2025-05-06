@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
 import {AppComponent} from './app.component';
 import {AuthGuard} from './infrastructure/out/guards/auth.guard';
+import {LoginComponent} from './infrastructure/out/ui/components/login.component';
 
 export const routes: Routes = [
-  { path: 'login', component: AppComponent },
+  { path: 'login', component: LoginComponent },
   {
     path: 'boats',
     canActivate: [AuthGuard],
