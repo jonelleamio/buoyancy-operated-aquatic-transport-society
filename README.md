@@ -25,11 +25,12 @@ _An enterprise-grade Spring Boot & Angular application illustrating Hexagonal Ar
 
 **BOATS** is an over-engineered yacht-club association society management system (aka CRUD) built to enterprise standards:
 
-- **Hexagonal (Ports & Adapters)** for clear separation of concerns
-- **CQRS & Event Sourcing** via Axon Framework
-- **HATEOAS-driven** REST endpoints for self-describing APIs
-- **Spring Boot** backend, **Angular** frontend
-- End-to-end **Cucumber** scenarios and **ApprovalTests**
+- [x] **Hexagonal (Ports & Adapters)** for clear separation of concerns
+- [ ] **CQRS & Event Sourcing** via Axon Framework
+- [x] **HATEOAS-driven** REST endpoints for self-describing APIs
+- [x] **Spring Boot** backend
+- [ ] **Angular** frontend
+- [x] End-to-end **Cucumber** scenarios and **ApprovalTests**
 
 ---
 
@@ -61,17 +62,17 @@ _An enterprise-grade Spring Boot & Angular application illustrating Hexagonal Ar
 
 ```mermaid
 flowchart LR
-   subgraph PrimaryAdapters["Primary Adapters"]
-      REST["REST / UI / CLI"]
+   subgraph PrimaryAdapters["Infrastructure / IN"]
+      REST["REST API / UI"]
    end
    subgraph Application["Application"]
-      AppSvc["Application Services"]
+      AppSvc["Use Cases"]
    end
    subgraph DomainLayer["Domain"]
       DM["Domain Model"]
    end
-   subgraph SecondaryAdapters["Secondary Adapters"]
-      Sec["DB / Cache / External WS"]
+   subgraph SecondaryAdapters["Infrastructure / OUT"]
+      Sec["Persistence"]
    end
 
    REST --> AppSvc
@@ -84,11 +85,9 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    subgraph Primary Adapters
-      A1["Web Service"]
+    subgraph IN / Primary Adapters
+      A1["REST API"]
       A2["UI"]
-      A3["Console"]
-      A4["Listeners"]
     end
 
     subgraph Hexagon [Domain & Application]
@@ -100,49 +99,16 @@ flowchart LR
       ASvc["Application Services"]
     end
 
-    subgraph Secondary Adapters
+    subgraph OUT / Secondary Adapters
       S1["Persistence"]
       S2["Cache"]
-      S3["Messaging"]
-      S4["File System"]
-      S5["External WS"]
+      S3["OAuth2 Provider"]
     end
 
-    A1 & A2 & A3 & A4 --> ASvc
+    A1 & A2 --> ASvc
     ASvc --> DM
     DM --> P1 & P2
     P1 & P2 --> S1 & S2 & S3 & S4 & S5
-```
-
-### CQRS + HATEOAS Schema
-
-```mermaid
-flowchart TB
-    subgraph Primary Adapters
-      API["REST + HATEOAS"]
-      UI["Angular UI"]
-    end
-
-    subgraph Command Side
-      CMD["@CommandHandler"]
-    end
-
-    subgraph Application
-      APP["Orchestration Services"]
-    end
-
-    subgraph Query Side
-      QRY["@QueryHandler"]
-    end
-
-    subgraph Secondary Adapters
-      DB["Event Store / Repositories"]
-    end
-
-    API --> CMD
-    CMD --> APP
-    APP --> QRY
-    QRY --> DB
 ```
 ---
 
