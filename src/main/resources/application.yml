@@ -48,6 +48,11 @@ spring:
           fail_on_pagination_over_collection_fetch: true
           in_clause_parameter_padding: true
 
+boats:
+  app:
+    jwtSecret: YKSRpKGf8Piopoxb9KsZvpFiniwH+JPrYabG2w7hGea4xSpt44U1cqjFf4kZUnUhFnOVz7uFxgGkOtx4U0gwtg==
+    jwtExpirationSec: 3600
+
 management:
   endpoint:
     health:

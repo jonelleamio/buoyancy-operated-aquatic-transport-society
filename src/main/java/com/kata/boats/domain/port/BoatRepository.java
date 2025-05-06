@@ -8,7 +8,10 @@ import java.util.UUID;
 
 public interface BoatRepository {
     Set<Boat> find();
+
     Optional<Boat> findById(UUID id);
+
     Boat store(Boat boat);
+
     void remove(UUID id);
 }

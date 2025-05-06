@@ -1,30 +1,51 @@
+### Login
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "root",
+  "password": "root"
+}
+
+> {%
+    client.global.set("authToken", response.body.token);
+  %}
+
 ### Browse all boats
 GET http://localhost:8080/api/boats
 Accept: application/hal+json
+Authorization: Bearer {{authToken}}
 
 ### Register a new boat
 POST http://localhost:8080/api/boats
 Content-Type: application/json
+Authorization: Bearer {{authToken}}
 
 {
   "name": "Tri-state Sailor",
   "description": "Behold, the evil vessel of tri-state area"
 }
+> {%
+    client.global.set("boatId", response.body.id);
+  %}
 
 ### Get the details of a particular boat
-GET http://localhost:8080/api/boats/e29a6050-3195-4f43-a938-67d0001b2c84
+GET http://localhost:8080/api/boats/{{boatId}}
 Accept: application/hal+json
+Authorization: Bearer {{authToken}}
 
 ### Update boat info
 PUT http://localhost:8080/api/boats
 Content-Type: application/json
+Authorization: Bearer {{authToken}}
 
 {
-  "id": "e29a6050-3195-4f43-a938-67d0001b2c84",
+  "id": "{{boatId}}",
   "name": "Perry's bo-at",
-  "description": "Was a bad bo-at-inator, but now it is agent P's bo-at"
+  "description": "Was a bad bo-at, but now it is agent P's bo-at"
 }
 
 ### Undock a boat
-DELETE http://localhost:8080/api/boats/e29a6050-3195-4f43-a938-67d0001b2c84
+DELETE http://localhost:8080/api/boats/{{boatId}}
 Accept: application/hal+json
+Authorization: Bearer {{authToken}}

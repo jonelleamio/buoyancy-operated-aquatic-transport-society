@@ -1,8 +1,8 @@
 package com.kata.boats.infrastructure.in;
 
 import com.kata.boats.application.BrowseBoatsUseCase;
-import com.kata.boats.application.UndockBoatUseCase;
 import com.kata.boats.application.RegisterBoatUseCase;
+import com.kata.boats.application.UndockBoatUseCase;
 import com.kata.boats.application.UpdateBoatInfoUseCase;
 import com.kata.boats.application.ViewBoatDetailsUseCase;
 import com.kata.boats.domain.model.BoatStringId;

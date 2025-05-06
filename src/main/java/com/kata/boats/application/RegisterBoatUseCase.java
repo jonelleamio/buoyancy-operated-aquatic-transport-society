@@ -13,7 +13,7 @@ public class RegisterBoatUseCase {
 
     public Boat execute(BoatRegistration command) {
         command.validate();
-        
+
         return boatRepository.store(BoatRegistration.toBoat(command));
     }
 }

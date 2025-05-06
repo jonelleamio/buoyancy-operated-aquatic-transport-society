@@ -1,6 +1,17 @@
+logging:
+  config: classpath:logback.xml
+  level:
+    com:
+      kata:
+        boats: 'OFF'
+
 spring:
   flyway:
     enabled: true
   jpa:
     hibernate:
       ddl-auto: none
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+      - org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
