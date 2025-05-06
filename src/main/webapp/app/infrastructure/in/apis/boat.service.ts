@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient }  from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import {BoatResource} from '../models/boat-resource.model';
+import {environment} from '../../../../environments/environment';
 
 interface Page<T> {
   _embedded: Record<string, T[]>;
@@ -10,7 +11,7 @@ interface Page<T> {
 
 @Injectable({ providedIn: 'root' })
 export class BoatService {
-  private readonly BASE = '/api/boats';
+  private readonly BASE = `${environment.apiUrl}/api/boats`;
 
   constructor(private http: HttpClient) {}
 

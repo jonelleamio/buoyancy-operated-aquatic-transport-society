@@ -64,7 +64,7 @@
               "fileReplacements": [
                 {
                   "replace": "src/main/webapp/environments/environment.ts",
-                  "with": "src/main/webapp/environments/environment.local.ts"
+                  "with": "src/main/webapp/environments/environment.development.ts"
                 }
               ]
             }

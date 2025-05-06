@@ -18,3 +18,12 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+
+application:
+  cors:
+    allowed-origins: http://localhost:4200,http://localhost:8100,http://localhost:9000
+    allowed-methods: '*'
+    allowed-headers: '*'
+    exposed-headers: Authorization,Link,X-Total-Count
+    allow-credentials: true
+    max-age: 1800
